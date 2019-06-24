@@ -10,9 +10,9 @@ use Yii;
  * @property int $id_petugas
  * @property string $nama_petugas
  * @property string $alamat
- * @property int $tipe
  *
  * @property Login[] $logins
+ * @property Transaksi[] $transaksis
  */
 class Petugas extends \yii\db\ActiveRecord
 {
@@ -30,8 +30,8 @@ class Petugas extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['id_petugas', 'nama_petugas', 'alamat', 'tipe'], 'required'],
-            [['id_petugas', 'tipe'], 'integer'],
+            [['id_petugas', 'nama_petugas', 'alamat'], 'required'],
+            [['id_petugas'], 'integer'],
             [['nama_petugas'], 'string', 'max' => 40],
             [['alamat'], 'string', 'max' => 50],
             [['id_petugas'], 'unique'],
@@ -47,7 +47,6 @@ class Petugas extends \yii\db\ActiveRecord
             'id_petugas' => 'Id Petugas',
             'nama_petugas' => 'Nama Petugas',
             'alamat' => 'Alamat',
-            'tipe' => 'Tipe',
         ];
     }
 
@@ -57,5 +56,13 @@ class Petugas extends \yii\db\ActiveRecord
     public function getLogins()
     {
         return $this->hasMany(Login::className(), ['id_petugas' => 'id_petugas']);
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getTransaksis()
+    {
+        return $this->hasMany(Transaksi::className(), ['id_petugas' => 'id_petugas']);
     }
 }

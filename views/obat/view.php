@@ -7,7 +7,7 @@ use yii\widgets\DetailView;
 /* @var $model app\models\Obat */
 
 $this->title = $model->kode_obat;
-$this->params['breadcrumbs'][] = ['label' => 'Obat', 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => 'Obats', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 \yii\web\YiiAsset::register($this);
 ?>
@@ -33,7 +33,8 @@ $this->params['breadcrumbs'][] = $this->title;
             'nama_obat',
             'produsen_obat',
             'stok',
-            'harga',
+            'harga_jual',
+            'harga_beli',
         ],
     ]) ?>
 

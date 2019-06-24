@@ -10,8 +10,10 @@ use Yii;
  * @property string $username
  * @property string $password
  * @property int $id_petugas
+ * @property int $tipe
  *
  * @property Petugas $petugas
+ * @property Posisi $tipe0
  */
 class Login extends \yii\db\ActiveRecord
 {
@@ -29,12 +31,13 @@ class Login extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['username', 'password', 'id_petugas'], 'required'],
-            [['id_petugas'], 'integer'],
+            [['username', 'password', 'tipe'], 'required'],
+            [['id_petugas', 'tipe'], 'integer'],
             [['username'], 'string', 'max' => 30],
             [['password'], 'string', 'max' => 144],
             [['username'], 'unique'],
             [['id_petugas'], 'exist', 'skipOnError' => true, 'targetClass' => Petugas::className(), 'targetAttribute' => ['id_petugas' => 'id_petugas']],
+            [['tipe'], 'exist', 'skipOnError' => true, 'targetClass' => Posisi::className(), 'targetAttribute' => ['tipe' => 'id']],
         ];
     }
 
@@ -47,6 +50,7 @@ class Login extends \yii\db\ActiveRecord
             'username' => 'Username',
             'password' => 'Password',
             'id_petugas' => 'Id Petugas',
+            'tipe' => 'Tipe',
         ];
     }
 
@@ -56,5 +60,13 @@ class Login extends \yii\db\ActiveRecord
     public function getPetugas()
     {
         return $this->hasOne(Petugas::className(), ['id_petugas' => 'id_petugas']);
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getTipe0()
+    {
+        return $this->hasOne(Posisi::className(), ['id' => 'tipe']);
     }
 }

@@ -7,7 +7,7 @@ use yii\grid\GridView;
 /* @var $searchModel app\models\ObatSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Obat';
+$this->title = 'Obats';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="obat-index">
@@ -30,7 +30,8 @@ $this->params['breadcrumbs'][] = $this->title;
             'nama_obat',
             'produsen_obat',
             'stok',
-            'harga',
+            'harga_jual',
+            //'harga_beli',
 
             ['class' => 'yii\grid\ActionColumn'],
         ],

@@ -23,7 +23,9 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'stok') ?>
 
-    <?= $form->field($model, 'harga') ?>
+    <?= $form->field($model, 'harga_jual') ?>
+
+    <?php // echo $form->field($model, 'harga_beli') ?>
 
     <div class="form-group">
         <?= Html::submitButton('Search', ['class' => 'btn btn-primary']) ?>

@@ -11,7 +11,10 @@ use Yii;
  * @property string $nama_obat
  * @property string $produsen_obat
  * @property int $stok
- * @property int $harga
+ * @property int $harga_jual
+ * @property int $harga_beli
+ *
+ * @property TransaksiObat[] $transaksiObats
  */
 class Obat extends \yii\db\ActiveRecord
 {
@@ -29,8 +32,8 @@ class Obat extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['kode_obat', 'nama_obat', 'produsen_obat', 'stok', 'harga'], 'required'],
-            [['stok', 'harga'], 'integer'],
+            [['kode_obat', 'nama_obat', 'produsen_obat', 'stok', 'harga_jual', 'harga_beli'], 'required'],
+            [['stok', 'harga_jual', 'harga_beli'], 'integer'],
             [['kode_obat'], 'string', 'max' => 10],
             [['nama_obat'], 'string', 'max' => 35],
             [['produsen_obat'], 'string', 'max' => 50],
@@ -48,7 +51,16 @@ class Obat extends \yii\db\ActiveRecord
             'nama_obat' => 'Nama Obat',
             'produsen_obat' => 'Produsen Obat',
             'stok' => 'Stok',
-            'harga' => 'Harga',
+            'harga_jual' => 'Harga Jual',
+            'harga_beli' => 'Harga Beli',
         ];
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getTransaksiObats()
+    {
+        return $this->hasMany(TransaksiObat::className(), ['kode_obat' => 'kode_obat']);
     }
 }

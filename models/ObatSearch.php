@@ -18,7 +18,7 @@ class ObatSearch extends Obat
     {
         return [
             [['kode_obat', 'nama_obat', 'produsen_obat'], 'safe'],
-            [['stok', 'harga'], 'integer'],
+            [['stok', 'harga_jual', 'harga_beli'], 'integer'],
         ];
     }
 
@@ -59,7 +59,8 @@ class ObatSearch extends Obat
         // grid filtering conditions
         $query->andFilterWhere([
             'stok' => $this->stok,
-            'harga' => $this->harga,
+            'harga_jual' => $this->harga_jual,
+            'harga_beli' => $this->harga_beli,
         ]);
 
         $query->andFilterWhere(['like', 'kode_obat', $this->kode_obat])

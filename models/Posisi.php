@@ -9,6 +9,8 @@ use Yii;
  *
  * @property int $id 0 = admin. 1 = petugas gudang, 2 = petugas kasir
  * @property string $nama
+ *
+ * @property Login[] $logins
  */
 class Posisi extends \yii\db\ActiveRecord
 {
@@ -42,5 +44,13 @@ class Posisi extends \yii\db\ActiveRecord
             'id' => 'ID',
             'nama' => 'Nama',
         ];
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getLogins()
+    {
+        return $this->hasMany(Login::className(), ['tipe' => 'id']);
     }
 }

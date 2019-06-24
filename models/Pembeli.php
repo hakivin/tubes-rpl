@@ -10,6 +10,8 @@ use Yii;
  * @property int $id_member
  * @property string $nama_member
  * @property string $alamat
+ *
+ * @property Transaksi[] $transaksis
  */
 class Pembeli extends \yii\db\ActiveRecord
 {
@@ -43,5 +45,13 @@ class Pembeli extends \yii\db\ActiveRecord
             'nama_member' => 'Nama Member',
             'alamat' => 'Alamat',
         ];
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getTransaksis()
+    {
+        return $this->hasMany(Transaksi::className(), ['id_member' => 'id_member']);
     }
 }

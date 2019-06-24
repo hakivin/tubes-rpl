@@ -17,7 +17,7 @@ class PetugasSearch extends Petugas
     public function rules()
     {
         return [
-            [['id_petugas', 'tipe'], 'integer'],
+            [['id_petugas'], 'integer'],
             [['nama_petugas', 'alamat'], 'safe'],
         ];
     }
@@ -59,7 +59,6 @@ class PetugasSearch extends Petugas
         // grid filtering conditions
         $query->andFilterWhere([
             'id_petugas' => $this->id_petugas,
-            'tipe' => $this->tipe,
         ]);
 
         $query->andFilterWhere(['like', 'nama_petugas', $this->nama_petugas])
