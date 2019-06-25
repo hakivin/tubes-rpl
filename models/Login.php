@@ -7,6 +7,7 @@ use Yii;
 /**
  * This is the model class for table "login".
  *
+ * @property int $id
  * @property string $username
  * @property string $password
  * @property int $id_petugas
@@ -31,11 +32,12 @@ class Login extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['username', 'password', 'tipe'], 'required'],
-            [['id_petugas', 'tipe'], 'integer'],
+            [['id', 'username', 'password', 'tipe'], 'required'],
+            [['id', 'id_petugas', 'tipe'], 'integer'],
             [['username'], 'string', 'max' => 30],
             [['password'], 'string', 'max' => 144],
             [['username'], 'unique'],
+            [['id'], 'unique'],
             [['id_petugas'], 'exist', 'skipOnError' => true, 'targetClass' => Petugas::className(), 'targetAttribute' => ['id_petugas' => 'id_petugas']],
             [['tipe'], 'exist', 'skipOnError' => true, 'targetClass' => Posisi::className(), 'targetAttribute' => ['tipe' => 'id']],
         ];
@@ -47,6 +49,7 @@ class Login extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
+            'id' => 'ID',
             'username' => 'Username',
             'password' => 'Password',
             'id_petugas' => 'Id Petugas',
