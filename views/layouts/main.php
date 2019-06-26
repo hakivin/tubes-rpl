@@ -39,11 +39,14 @@ AppAsset::register($this);
         'options' => ['class' => 'navbar-nav navbar-right'],
         'items' => [
             ['label' => 'Home', 'url' => ['/site/index']],
-            ['label' => 'Petugas', 'url' => ['/petugas/index']],
+            Yii::$app->user->can('createAsset') ? (
+                ['label' => 'Petugas', 'url' => ['/petugas/index']]
+            ) : (['label' => 'Petugas', 'url' => ['/site/about']]),
+            
             ['label' => 'Obat', 'url' => ['/obat/index']],
-            ['label' => 'Kasir', 'url' => ['/obat/kasir']],
-            ['label' => 'Keuangan', 'url' => ['/obat/keuangan']],
-            ['label' => 'Transaksi', 'url' => ['/obat/transaksi']],
+            ['label' => 'Kasir', 'url' => ['/kasir/index']],
+            ['label' => 'Keuangan', 'url' => ['/keuangan/index']],
+            ['label' => 'Transaksi', 'url' => ['/transaksi/index']],
             Yii::$app->user->isGuest ? (
                 ['label' => 'Login', 'url' => ['/site/login']]
             ) : (
