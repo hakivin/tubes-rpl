@@ -39,14 +39,20 @@ AppAsset::register($this);
         'options' => ['class' => 'navbar-nav navbar-right'],
         'items' => [
             ['label' => 'Home', 'url' => ['/site/index']],
-            Yii::$app->user->can('createAsset') ? (
+            Yii::$app->user->can('admin') ? (
                 ['label' => 'Petugas', 'url' => ['/petugas/index']]
-            ) : (['label' => 'Petugas', 'url' => ['/site/about']]),
-            
-            ['label' => 'Obat', 'url' => ['/obat/index']],
+            ) : (['label' => 'Petugas', 'url' => ['/bad-privilege/index']]),
+            Yii::$app->user->can('admin') ? (
+                ['label' => 'Obat', 'url' => ['/obat/index']]
+            ) : (['label' => 'Obat', 'url' => ['/bad-privilege/index']]),       
+            Yii::$app->user->can('admin') ? (
+                ['label' => 'Keuangan', 'url' => ['/keuangan/index']]
+            ) : (['label' => 'Keuangan', 'url' => ['/bad-privilege/index']]),
+            Yii::$app->user->can('admin') ? (
+                ['label' => 'Transaksi', 'url' => ['/transaksi/index']]
+            ) : (['label' => 'Transaksi', 'url' => ['/bad-privilege/index']]),       
             ['label' => 'Kasir', 'url' => ['/kasir/index']],
-            ['label' => 'Keuangan', 'url' => ['/keuangan/index']],
-            ['label' => 'Transaksi', 'url' => ['/transaksi/index']],
+            ['label' => 'Gudang', 'url' => ['/gudang/index']],
             Yii::$app->user->isGuest ? (
                 ['label' => 'Login', 'url' => ['/site/login']]
             ) : (
