@@ -4,12 +4,12 @@ namespace app\models;
 
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
-use app\models\Obat;
+use app\models\Gudang;
 
 /**
- * ObatSearch represents the model behind the search form of `app\models\Obat`.
+ * GudangSearch represents the model behind the search form of `app\models\Gudang`.
  */
-class ObatSearch extends Obat
+class GudangSearch extends Gudang
 {
     /**
      * {@inheritdoc}
@@ -17,8 +17,8 @@ class ObatSearch extends Obat
     public function rules()
     {
         return [
-            [['kode_obat', 'nama_obat', 'produsen_obat'], 'safe'],
-            [['stok', 'harga_jual', 'harga_beli'], 'integer'],
+            [['kode_obat'], 'safe'],
+            [['stok'], 'integer'],
         ];
     }
 
@@ -40,7 +40,7 @@ class ObatSearch extends Obat
      */
     public function search($params)
     {
-        $query = Obat::find();
+        $query = Gudang::find();
 
         // add conditions that should always apply here
 
@@ -59,8 +59,6 @@ class ObatSearch extends Obat
         // grid filtering conditions
         $query->andFilterWhere([
             'stok' => $this->stok,
-            'harga_jual' => $this->harga_jual,
-            'harga_beli' => $this->harga_beli,
         ]);
 
         $query->andFilterWhere(['like', 'kode_obat', $this->kode_obat])

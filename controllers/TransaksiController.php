@@ -3,16 +3,16 @@
 namespace app\controllers;
 
 use Yii;
-use app\models\Obat;
-use app\models\ObatSearch;
+use app\models\Transaksi;
+use app\models\TransaksiSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
 /**
- * ObatController implements the CRUD actions for Obat model.
+ * TransaksiController implements the CRUD actions for Transaksi model.
  */
-class ObatController extends Controller
+class TransaksiController extends Controller
 {
     /**
      * {@inheritdoc}
@@ -30,12 +30,12 @@ class ObatController extends Controller
     }
 
     /**
-     * Lists all Obat models.
+     * Lists all Transaksi models.
      * @return mixed
      */
     public function actionIndex()
     {
-        $searchModel = new ObatSearch();
+        $searchModel = new TransaksiSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
         return $this->render('index', [
@@ -45,8 +45,8 @@ class ObatController extends Controller
     }
 
     /**
-     * Displays a single Obat model.
-     * @param string $id
+     * Displays a single Transaksi model.
+     * @param integer $id
      * @return mixed
      * @throws NotFoundHttpException if the model cannot be found
      */
@@ -58,16 +58,16 @@ class ObatController extends Controller
     }
 
     /**
-     * Creates a new Obat model.
+     * Creates a new Transaksi model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
     public function actionCreate()
     {
-        $model = new Obat();
+        $model = new Transaksi();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->kode_obat]);
+            return $this->redirect(['view', 'id' => $model->id_transaksi]);
         }
 
         return $this->render('create', [
@@ -76,9 +76,9 @@ class ObatController extends Controller
     }
 
     /**
-     * Updates an existing Obat model.
+     * Updates an existing Transaksi model.
      * If update is successful, the browser will be redirected to the 'view' page.
-     * @param string $id
+     * @param integer $id
      * @return mixed
      * @throws NotFoundHttpException if the model cannot be found
      */
@@ -87,7 +87,7 @@ class ObatController extends Controller
         $model = $this->findModel($id);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->kode_obat]);
+            return $this->redirect(['view', 'id' => $model->id_transaksi]);
         }
 
         return $this->render('update', [
@@ -96,9 +96,9 @@ class ObatController extends Controller
     }
 
     /**
-     * Deletes an existing Obat model.
+     * Deletes an existing Transaksi model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
-     * @param string $id
+     * @param integer $id
      * @return mixed
      * @throws NotFoundHttpException if the model cannot be found
      */
@@ -110,15 +110,15 @@ class ObatController extends Controller
     }
 
     /**
-     * Finds the Obat model based on its primary key value.
+     * Finds the Transaksi model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
-     * @param string $id
-     * @return Obat the loaded model
+     * @param integer $id
+     * @return Transaksi the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
     protected function findModel($id)
     {
-        if (($model = Obat::findOne($id)) !== null) {
+        if (($model = Transaksi::findOne($id)) !== null) {
             return $model;
         }
 

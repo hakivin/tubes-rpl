@@ -44,6 +44,7 @@ AppAsset::register($this);
             ) : (['label' => 'Petugas', 'url' => ['/site/about']]),
             
             ['label' => 'Obat', 'url' => ['/obat/index']],
+            ['label' => 'Gudang', 'url' => ['/gudang/index']],
             ['label' => 'Kasir', 'url' => ['/kasir/index']],
             ['label' => 'Keuangan', 'url' => ['/keuangan/index']],
             ['label' => 'Transaksi', 'url' => ['/transaksi/index']],

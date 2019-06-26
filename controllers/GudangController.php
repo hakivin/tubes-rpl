@@ -3,16 +3,16 @@
 namespace app\controllers;
 
 use Yii;
-use app\models\Obat;
-use app\models\ObatSearch;
+use app\models\Gudang;
+use app\models\GudangSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
 /**
- * ObatController implements the CRUD actions for Obat model.
+ * GudangController implements the CRUD actions for Gudang model.
  */
-class ObatController extends Controller
+class GudangController extends Controller
 {
     /**
      * {@inheritdoc}
@@ -30,12 +30,12 @@ class ObatController extends Controller
     }
 
     /**
-     * Lists all Obat models.
+     * Lists all Gudang models.
      * @return mixed
      */
     public function actionIndex()
     {
-        $searchModel = new ObatSearch();
+        $searchModel = new GudangSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
         return $this->render('index', [
@@ -45,7 +45,7 @@ class ObatController extends Controller
     }
 
     /**
-     * Displays a single Obat model.
+     * Displays a single Gudang model.
      * @param string $id
      * @return mixed
      * @throws NotFoundHttpException if the model cannot be found
@@ -58,13 +58,13 @@ class ObatController extends Controller
     }
 
     /**
-     * Creates a new Obat model.
+     * Creates a new Gudang model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
     public function actionCreate()
     {
-        $model = new Obat();
+        $model = new Gudang();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->kode_obat]);
@@ -76,7 +76,7 @@ class ObatController extends Controller
     }
 
     /**
-     * Updates an existing Obat model.
+     * Updates an existing Gudang model.
      * If update is successful, the browser will be redirected to the 'view' page.
      * @param string $id
      * @return mixed
@@ -96,7 +96,7 @@ class ObatController extends Controller
     }
 
     /**
-     * Deletes an existing Obat model.
+     * Deletes an existing Gudang model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
      * @param string $id
      * @return mixed
@@ -110,15 +110,15 @@ class ObatController extends Controller
     }
 
     /**
-     * Finds the Obat model based on its primary key value.
+     * Finds the Gudang model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
      * @param string $id
-     * @return Obat the loaded model
+     * @return Gudang the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
     protected function findModel($id)
     {
-        if (($model = Obat::findOne($id)) !== null) {
+        if (($model = Gudang::findOne($id)) !== null) {
             return $model;
         }
 

@@ -4,12 +4,12 @@ namespace app\models;
 
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
-use app\models\Obat;
+use app\models\Transaksi;
 
 /**
- * ObatSearch represents the model behind the search form of `app\models\Obat`.
+ * TransaksiSearch represents the model behind the search form of `app\models\Transaksi`.
  */
-class ObatSearch extends Obat
+class TransaksiSearch extends Transaksi
 {
     /**
      * {@inheritdoc}
@@ -17,8 +17,8 @@ class ObatSearch extends Obat
     public function rules()
     {
         return [
-            [['kode_obat', 'nama_obat', 'produsen_obat'], 'safe'],
-            [['stok', 'harga_jual', 'harga_beli'], 'integer'],
+            [['id_transaksi', 'id_member', 'id_petugas'], 'integer'],
+            [['waktu_transaksi'], 'safe'],
         ];
     }
 
@@ -40,7 +40,7 @@ class ObatSearch extends Obat
      */
     public function search($params)
     {
-        $query = Obat::find();
+        $query = Transaksi::find();
 
         // add conditions that should always apply here
 
@@ -58,14 +58,11 @@ class ObatSearch extends Obat
 
         // grid filtering conditions
         $query->andFilterWhere([
-            'stok' => $this->stok,
-            'harga_jual' => $this->harga_jual,
-            'harga_beli' => $this->harga_beli,
+            'id_transaksi' => $this->id_transaksi,
+            'waktu_transaksi' => $this->waktu_transaksi,
+            'id_member' => $this->id_member,
+            'id_petugas' => $this->id_petugas,
         ]);
-
-        $query->andFilterWhere(['like', 'kode_obat', $this->kode_obat])
-            ->andFilterWhere(['like', 'nama_obat', $this->nama_obat])
-            ->andFilterWhere(['like', 'produsen_obat', $this->produsen_obat]);
 
         return $dataProvider;
     }
