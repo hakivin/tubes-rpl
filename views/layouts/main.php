@@ -46,7 +46,7 @@ AppAsset::register($this);
 					['label' => 'Obat', 'url' => ['/obat/index']]
 				) : (['label' => 'Obat', 'url' => ['/bad-privilege/index']]),       
 				Yii::$app->user->can('admin') ? (
-					['label' => 'Keuangan', 'url' => ['/keuangan/index']]
+					['label' => 'Keuangan', 'url' => ['/keuangan/index1']]
 				) : (['label' => 'Keuangan', 'url' => ['/bad-privilege/index']]),
 				Yii::$app->user->can('admin') ? (
 					['label' => 'Transaksi', 'url' => ['/transaksi/index']]
