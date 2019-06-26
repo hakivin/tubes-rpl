@@ -52,7 +52,7 @@ AppAsset::register($this);
 					['label' => 'Transaksi', 'url' => ['/transaksi/index']]
 				) : (['label' => 'Transaksi', 'url' => ['/bad-privilege/index']]),    
 				Yii::$app->user->can('kasir') ? (
-					['label' => 'Kasir', 'url' => ['/kasir/index']]
+					['label' => 'Kasir', 'url' => ['/kasir/create']]
 				) : (['label' => 'Kasir', 'url' => ['/bad-privilege/index']]),   
 				Yii::$app->user->can('gudang') ? (
 					['label' => 'Gudang', 'url' => ['/gudang/index']]

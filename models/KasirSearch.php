@@ -4,12 +4,12 @@ namespace app\models;
 
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
-use app\models\Transaksi;
+use app\models\Kasir;
 
 /**
- * TransaksiSearch represents the model behind the search form of `app\models\Transaksi`.
+ * KasirSearch represents the model behind the search form of `app\models\Kasir`.
  */
-class TransaksiSearch extends Transaksi
+class KasirSearch extends Kasir
 {
     /**
      * {@inheritdoc}
@@ -40,7 +40,7 @@ class TransaksiSearch extends Transaksi
      */
     public function search($params)
     {
-        $query = Transaksi::find();
+        $query = Kasir::find();
 
         // add conditions that should always apply here
 

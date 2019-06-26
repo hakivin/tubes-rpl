@@ -19,7 +19,7 @@ use Yii;
  * @property Obat $kodeObat
  * @property TransaksiObat[] $transaksiObats
  */
-class Transaksi extends \yii\db\ActiveRecord
+class Kasir extends \yii\db\ActiveRecord
 {
     /**
      * {@inheritdoc}
