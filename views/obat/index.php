@@ -7,7 +7,7 @@ use yii\grid\GridView;
 /* @var $searchModel app\models\ObatSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Obats';
+$this->title = 'Obat';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="obat-index">
