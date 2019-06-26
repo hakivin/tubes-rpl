@@ -11,8 +11,6 @@ $this->title = 'Sistem Informasi Apotek Pajang';
     </div>
 
     <div class="body-content">
-
     <img src="img/apotek.jpg" alt="Apotek Pajang" style="padding:12px; display:block; margin-left: auto; margin-right: auto;">
-
     </div>
 </div>
