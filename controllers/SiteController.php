@@ -62,6 +62,18 @@ class SiteController extends Controller
     public function actionIndex()
     {
         return $this->render('index');
+        $model = new \app\models\Gudang();
+
+        if ($model->load(Yii::$app->request->post())) {
+            if ($model->validate()) {
+            // form inputs are valid, do something here
+                return;
+            }
+        }
+
+        return $this->render('stok', [
+            'model' => $model,
+        ]);
     }
 
     /**
@@ -82,6 +94,22 @@ class SiteController extends Controller
 
         $model->password = '';
         return $this->render('login', [
+            'model' => $model,
+        ]);
+    }
+
+    public function actionStok()
+    {
+        $model = new \app\models\Gudang();
+
+        if ($model->load(Yii::$app->request->post())) {
+            if ($model->validate()) {
+            // form inputs are valid, do something here
+                return;
+            }
+        }
+
+        return $this->render('stok', [
             'model' => $model,
         ]);
     }
