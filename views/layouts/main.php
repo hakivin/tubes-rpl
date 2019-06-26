@@ -50,9 +50,14 @@ AppAsset::register($this);
             ) : (['label' => 'Keuangan', 'url' => ['/bad-privilege/index']]),
             Yii::$app->user->can('admin') ? (
                 ['label' => 'Transaksi', 'url' => ['/transaksi/index']]
-            ) : (['label' => 'Transaksi', 'url' => ['/bad-privilege/index']]),       
-            ['label' => 'Kasir', 'url' => ['/kasir/index']],
-            ['label' => 'Gudang', 'url' => ['/gudang/index']],
+            ) : (['label' => 'Transaksi', 'url' => ['/bad-privilege/index']]),    
+            Yii::$app->user->can('kasir') ? (
+                ['label' => 'Kasir', 'url' => ['/kasir/index']]
+            ) : (['label' => 'Kasir', 'url' => ['/bad-privilege/index']]),   
+            Yii::$app->user->can('kasir') ? (
+                ['label' => 'Gudang', 'url' => ['/gudang/index']]
+            ) : (['label' => 'Gudang', 'url' => ['/bad-privilege/index']]),
+            
             Yii::$app->user->isGuest ? (
                 ['label' => 'Login', 'url' => ['/site/login']]
             ) : (

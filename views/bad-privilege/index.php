@@ -10,6 +10,7 @@ $this->params['breadcrumbs'][] = $this->title;
 <div class="site-about">
 
     <h2>Maaf, anda tidak memliki akses untuk laman ini </h2>
-    <p>Silahkan kembali ke halaman utama (Home)</p>
+    <p>Silahkan kembali ke halaman utama <a href="index.php">(Home)</a></p>
+    
 
 </div>
