@@ -40,7 +40,7 @@ class Gudang extends \yii\db\ActiveRecord
     {
         return [
             'kode_obat' => 'Kode Obat',
-            'stok' => 'Stok',
+            'stok' => 'Tambah Stok',
         ];
     }
 
@@ -49,6 +49,6 @@ class Gudang extends \yii\db\ActiveRecord
      */
     public function getTransaksiObats()
     {
-        return $this->hasMany(TransaksiObat::className(), ['kode_obat' => 'kode_obat']);
+        return $this->hasMany(TransaksiObat::className(), ['kode_obat' => 'stok']);
     }
 }
