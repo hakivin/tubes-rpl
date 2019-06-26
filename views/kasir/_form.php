@@ -4,15 +4,15 @@ use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 
 /* @var $this yii\web\View */
-/* @var $model app\models\Transaksi */
+/* @var $model app\models\Kasir */
 /* @var $form yii\widgets\ActiveForm */
 ?>
 
-<div class="transaksi-form">
+<div class="kasir-form">
 
     <?php $form = ActiveForm::begin(); ?>
 
-    <?= $form->field($model, 'waktu_transaksi')->textInput() ?>
+
 
     <?= $form->field($model, 'id_member')->textInput() ?>
 
@@ -23,7 +23,7 @@ use yii\widgets\ActiveForm;
     <?= $form->field($model, 'jumlah_beli')->textInput() ?>
 
     <div class="form-group">
-        <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>
+        <?= Html::submitButton('Done', ['class' => 'btn btn-success']) ?>
     </div>
 
     <?php ActiveForm::end(); ?>
