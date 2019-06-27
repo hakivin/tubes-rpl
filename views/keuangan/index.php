@@ -2,8 +2,10 @@
 <html>
 <head>
 <style>
-table, th, td {
-    border: 1px solid black;
+table, th, tr, td {
+    border: 2px solid black;
+	background-color:#00cbff;
+	text-align:center;
 }
 </style>
 </head>
@@ -14,8 +16,10 @@ $servername = "localhost";
 $username = "root";
 $password = "";
 $dbname = "apotekrpl";
+
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);
+
 // Check connection
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
@@ -26,9 +30,10 @@ if ($conn->connect_error) {
 	$result = $conn->query($sql);
 	if ($result->num_rows > 0) {
 		// output data of each row
-		echo "<table style='width:100%;background-color:#00cbff;'><tr><th>Waktu</th><th>Omset</th><th>Harga Beli</th><th>Keuntungan</th></tr>";
+		echo "<padding=100px>";
+		echo "<table style='width:70%;' ><tr><th>Waktu</th><th>Omset</th><th>Harga Beli</th><th>Keuntungan</th></tr>";
 		while($row = $result->fetch_assoc()) {
-			echo "<tr><>" .$row["DATE(transaksi.waktu_transaksi)"]."</td><td>".$row["sum(harga_jual * jumlah_beli)"]."</td><td>" 
+			echo "<tr><td>" .$row["DATE(transaksi.waktu_transaksi)"]."</td><td>".$row["sum(harga_jual * jumlah_beli)"]."</td><td>" 
 			.$row["Sum(harga_beli)"]."</td><td>" .$row["Sum(harga_jual * jumlah_beli) - Sum(harga_beli)"]."</td></tr>";
 		}
 		echo "</table>";
