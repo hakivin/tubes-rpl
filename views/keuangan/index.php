@@ -26,9 +26,8 @@ $this->params['breadcrumbs'][] = $this->title;
             'tanggal',
             'omzet',
             'harga_pokok',
-            'laba',
-
-            ['class' => 'yii\grid\ActionColumn'],
+			'laba',
+			
         ],
     ]); ?>
 

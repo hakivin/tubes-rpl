@@ -31,7 +31,6 @@ $this->params['breadcrumbs'][] = $this->title;
             'kode_obat',
             'jumlah_beli',
 
-            ['class' => 'yii\grid\ActionColumn'],
         ],
     ]); ?>
 
