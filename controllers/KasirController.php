@@ -8,6 +8,7 @@ use app\models\KasirSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use app\models\Obat;
 
 /**
  * KasirController implements the CRUD actions for Kasir model.
@@ -67,6 +68,13 @@ class KasirController extends Controller
         $model = new Kasir();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
+            $kodeObat = $model->kode_obat;
+            $jumlahBeli = $model->jumlah_beli;
+            $obat = Obat::find($kodeObat)
+                        ->limit(1)->one();
+            $stok = $obat->stok;
+            $obat->stok = $stok - $jumlahBeli;
+            $obat->save();  // equivalent to $model->update();
             return $this->redirect(['view', 'id' => $model->id_transaksi]);
         }
 

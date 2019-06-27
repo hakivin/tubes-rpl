@@ -35,9 +35,13 @@ class Kasir extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
+<<<<<<< HEAD
             [['id_petugas', 'kode_obat', 'jumlah_beli'], 'required'],
+=======
+>>>>>>> e707a2d513a7cc300ffbb57f0b4c23c2db71e784
             [['waktu_transaksi'], 'safe'],
             [['id_member', 'id_petugas', 'jumlah_beli'], 'integer'],
+            [['id_petugas', 'kode_obat', 'jumlah_beli'], 'required'],
             [['kode_obat'], 'string', 'max' => 10],
             [['id_member'], 'exist', 'skipOnError' => true, 'targetClass' => Pembeli::className(), 'targetAttribute' => ['id_member' => 'id_member']],
             [['id_petugas'], 'exist', 'skipOnError' => true, 'targetClass' => Petugas::className(), 'targetAttribute' => ['id_petugas' => 'id_petugas']],
