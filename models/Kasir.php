@@ -1,9 +1,6 @@
 <?php
-
 namespace app\models;
-
 use Yii;
-
 /**
  * This is the model class for table "transaksi".
  *
@@ -28,7 +25,6 @@ class Kasir extends \yii\db\ActiveRecord
     {
         return 'transaksi';
     }
-
     /**
      * {@inheritdoc}
      */
@@ -44,7 +40,6 @@ class Kasir extends \yii\db\ActiveRecord
             [['kode_obat'], 'exist', 'skipOnError' => true, 'targetClass' => Obat::className(), 'targetAttribute' => ['kode_obat' => 'kode_obat']],
         ];
     }
-
     /**
      * {@inheritdoc}
      */
@@ -59,7 +54,6 @@ class Kasir extends \yii\db\ActiveRecord
             'jumlah_beli' => 'Jumlah Beli',
         ];
     }
-
     /**
      * @return \yii\db\ActiveQuery
      */
@@ -67,7 +61,6 @@ class Kasir extends \yii\db\ActiveRecord
     {
         return $this->hasOne(Pembeli::className(), ['id_member' => 'id_member']);
     }
-
     /**
      * @return \yii\db\ActiveQuery
      */
@@ -75,7 +68,6 @@ class Kasir extends \yii\db\ActiveRecord
     {
         return $this->hasOne(Petugas::className(), ['id_petugas' => 'id_petugas']);
     }
-
     /**
      * @return \yii\db\ActiveQuery
      */
@@ -83,7 +75,6 @@ class Kasir extends \yii\db\ActiveRecord
     {
         return $this->hasOne(Obat::className(), ['kode_obat' => 'kode_obat']);
     }
-
     /**
      * @return \yii\db\ActiveQuery
      */

@@ -40,7 +40,7 @@ class Gudang extends \yii\db\ActiveRecord
     {
         return [
             'kode_obat' => 'Kode Obat',
-            'stok' => 'Tambah Stok',
+            'stok' => 'Jumlah Total Stok Obat Sekarang',
         ];
     }
 

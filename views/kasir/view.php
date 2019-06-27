@@ -1,11 +1,8 @@
 <?php
-
 use yii\helpers\Html;
 use yii\widgets\DetailView;
-
 /* @var $this yii\web\View */
 /* @var $model app\models\Kasir */
-
 $this->title = $model->id_transaksi;
 $this->params['breadcrumbs'][] = ['label' => 'Kasirs', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
