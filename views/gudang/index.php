@@ -27,7 +27,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
             'kode_obat',
             'stok',
-
+            
             ['class' => 'yii\grid\ActionColumn'],
         ],
     ]); ?>
