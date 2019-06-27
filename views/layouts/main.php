@@ -1,12 +1,15 @@
 <?php
+
 /* @var $this \yii\web\View */
 /* @var $content string */
+
 use app\widgets\Alert;
 use yii\helpers\Html;
 use yii\bootstrap\Nav;
 use yii\bootstrap\NavBar;
 use yii\widgets\Breadcrumbs;
 use app\assets\AppAsset;
+
 AppAsset::register($this);
 ?>
 <?php $this->beginPage() ?>
@@ -19,6 +22,7 @@ AppAsset::register($this);
 	<?php $this->registerCsrfMetaTags() ?>
 	<title><?= Html::encode($this->title) ?></title>
 	<?php $this->head() ?>
+	<link rel="icon" href="img/favicon.ico" type="image/x-icon">
 </head>
 <body>
 	<?php $this->beginBody() ?>
@@ -43,13 +47,13 @@ AppAsset::register($this);
 					['label' => 'Obat', 'url' => ['/obat/index']]
 				) : (['label' => 'Obat', 'url' => ['/bad-privilege/index']]),       
 				Yii::$app->user->can('admin') ? (
-					['label' => 'Keuangan', 'url' => ['/keuangan/index1']]
+					['label' => 'Keuangan', 'url' => ['/keuangan/index']]
 				) : (['label' => 'Keuangan', 'url' => ['/bad-privilege/index']]),
 				Yii::$app->user->can('admin') ? (
 					['label' => 'Transaksi', 'url' => ['/transaksi/index']]
 				) : (['label' => 'Transaksi', 'url' => ['/bad-privilege/index']]),    
 				Yii::$app->user->can('kasir') ? (
-					['label' => 'Kasir', 'url' => ['/kasir/index']]
+					['label' => 'Kasir', 'url' => ['/kasir/create']]
 				) : (['label' => 'Kasir', 'url' => ['/bad-privilege/index']]),   
 				Yii::$app->user->can('gudang') ? (
 					['label' => 'Gudang', 'url' => ['/gudang/index']]
