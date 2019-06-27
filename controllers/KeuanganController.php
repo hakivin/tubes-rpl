@@ -8,8 +8,6 @@ use yii\data\SqlDataProvider;
 
 class KeuanganController extends \yii\web\Controller
 {
-   
-        
 
     public function actionIndex()
     {
