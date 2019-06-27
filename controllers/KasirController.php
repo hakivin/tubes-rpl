@@ -70,7 +70,8 @@ class KasirController extends Controller
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             $kodeObat = $model->kode_obat;
             $jumlahBeli = $model->jumlah_beli;
-            $obat = Obat::find($kodeObat)
+            $obat = Obat::find()
+                        ->where('kode_obat = :kodeObat', [':kodeObat' => $kodeObat])
                         ->limit(1)->one();
             $stok = $obat->stok;
             $obat->stok = $stok - $jumlahBeli;
