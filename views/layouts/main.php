@@ -43,13 +43,13 @@ AppAsset::register($this);
 				Yii::$app->user->can('admin') ? (
 					['label' => 'Petugas', 'url' => ['/petugas/index']]
 				) : (['label' => 'Petugas', 'url' => ['/bad-privilege/index']]),
-				Yii::$app->user->can('admin') ? (
+				Yii::$app->user->can('gudang') ? (
 					['label' => 'Obat', 'url' => ['/obat/index']]
 				) : (['label' => 'Obat', 'url' => ['/bad-privilege/index']]),       
-				Yii::$app->user->can('admin') ? (
+				Yii::$app->user->can('kasir') ? (
 					['label' => 'Keuangan', 'url' => ['/keuangan/index']]
 				) : (['label' => 'Keuangan', 'url' => ['/bad-privilege/index']]),
-				Yii::$app->user->can('admin') ? (
+				Yii::$app->user->can('kasir') ? (
 					['label' => 'Transaksi', 'url' => ['/transaksi/index']]
 				) : (['label' => 'Transaksi', 'url' => ['/bad-privilege/index']]),    
 				Yii::$app->user->can('kasir') ? (
@@ -87,7 +87,8 @@ AppAsset::register($this);
 
 	<footer class="footer">
 		<div class="container">
-			<p class="pull-left">&copy; Apotek Pajang <?= date('Y') ?></p>
+			<p class="pull-left">&copy; Apotek Pajang <?= date('Y') ?> | Jl. Joko Tingkir, Dusun I, Pajang, Laweyan, Kota Surakarta, Jawa Tengah 57161</p>
+			<br>
 		</div>
 	</footer>
 
