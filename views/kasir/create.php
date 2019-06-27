@@ -6,7 +6,7 @@ use yii\helpers\Html;
 /* @var $model app\models\Kasir */
 
 $this->title = 'Kasir';
-$this->params['breadcrumbs'][] = ['label' => 'Kasirs', 'url' => ['index']];
+// $this->params['breadcrumbs'][] = ['label' => 'Kasir', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="kasir-create">

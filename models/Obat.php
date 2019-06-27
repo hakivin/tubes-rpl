@@ -32,7 +32,7 @@ class Obat extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['kode_obat', 'nama_obat', 'produsen_obat', 'stok', 'harga_jual', 'harga_beli'], 'required'],
+            [['kode_obat', 'nama_obat', 'produsen_obat', 'harga_jual', 'harga_beli'], 'required'],
             [['stok', 'harga_jual', 'harga_beli'], 'integer'],
             [['kode_obat'], 'string', 'max' => 10],
             [['nama_obat'], 'string', 'max' => 35],

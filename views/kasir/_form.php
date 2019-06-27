@@ -20,7 +20,7 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'kode_obat')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'jumlah_beli')->textInput() ?>
+    <?= $form->field($model, 'jumlah_beli')->textInput() ?>    
 
     <div class="form-group">
         <?= Html::submitButton('Done', ['class' => 'btn btn-success']) ?>

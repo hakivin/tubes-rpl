@@ -35,7 +35,7 @@ class Kasir extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['waktu_transaksi', 'id_petugas', 'kode_obat', 'jumlah_beli'], 'required'],
+            [['id_petugas', 'kode_obat', 'jumlah_beli'], 'required'],
             [['waktu_transaksi'], 'safe'],
             [['id_member', 'id_petugas', 'jumlah_beli'], 'integer'],
             [['kode_obat'], 'string', 'max' => 10],

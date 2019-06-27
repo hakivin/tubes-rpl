@@ -7,7 +7,7 @@ use yii\grid\GridView;
 /* @var $searchModel app\models\KasirSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Kasirs';
+$this->title = 'Kasir';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="kasir-index">

@@ -18,7 +18,7 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'produsen_obat')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'stok')->textInput() ?>
+    <!-- <?= $form->field($model, 'stok')->textInput() ?> -->
 
     <?= $form->field($model, 'harga_jual')->textInput() ?>
 
